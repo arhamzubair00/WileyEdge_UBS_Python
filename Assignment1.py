@@ -4,9 +4,11 @@
 # Ask the user what flavoring they want, if any. Choices include hazelnut, vanilla, and caramel.
 # Store types of coffee size, coffee kind, and flavour in dictionaries
 # Add cost to one variable, throughout the order
+# After telling cost, ask whether they want to add 15% tip
+# Tell them how much it will be with 15% tip.
+# If yes, round the number to 2 DP.
 
 import sys
-
 
 total_cost = 0
 
@@ -51,3 +53,16 @@ else:
 
 print(f"To summarise, you asked for a {coffee_size} cup of {coffee_kind} coffee, with {flavour} syrup. ")
 print(f"Your total comes to ${total_cost}. ")
+
+total_plus_tip = total_cost * 1.15
+tip_or_not = input(f"Would you like to add a 15% tip? The total cost would be ${round(total_plus_tip, 2)}. ")
+
+if tip_or_not == "yes":
+    print(
+        f"Great, Thank you. To summarise, you asked for a {coffee_size} cup of {coffee_kind} coffee, with {flavour} syrup. Your total with a 15% tip comes to ${round(total_plus_tip, 2)}. "
+    )
+elif tip_or_not == "no":
+    print(f"No problem. To summarise, you asked for a {coffee_size} cup of {coffee_kind} coffee, with {flavour} syrup. ")
+    print(f"Your total comes to ${total_cost}. ")
+else:
+    sys.exit("You provided an incorrect response, let's start again. ")
