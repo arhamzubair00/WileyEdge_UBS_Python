@@ -59,7 +59,11 @@ for w in words_list:
         w_clean.append(w)
     elif w[-1] in punctuation and w[0] not in punctuation:
         sliced_word = w[0:-1]
-        w_clean.append(sliced_word)
+        if sliced_word[-1] in punctuation:
+            sliced_word2 = sliced_word[0:-1]
+            w_clean.append(sliced_word2)
+        else:
+            w_clean.append(sliced_word)
     elif w[0] in punctuation and w[-1] not in punctuation:
         sliced_word = w[1:]
         w_clean.append(sliced_word)
