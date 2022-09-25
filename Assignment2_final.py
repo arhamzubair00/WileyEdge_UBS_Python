@@ -1,3 +1,6 @@
+# Arham Zubair
+
+
 # Convert the string to lowercase characters.
 # Split the lowercase string into individual words.
 # Remove the punctuation from the lowercase words. Assume that all punctuation is either the first character or the last character of each item in the list.
