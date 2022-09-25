@@ -13,6 +13,7 @@
 # Creating a punctuation list only
 import string
 punctuation = string.punctuation
+# print(punctuation)
 
 default_para = """Imagine a vast sheet of paper on which straight Lines, Triangles, Squares, Pentagons, Hexagons, and other figures, instead of remaining fixed in their places, move freely about, on or in the surface, but without the power of rising above or sinking below it, very much like shadows - only hard and with luminous edges - and you will then have a pretty correct notion of my country and countrymen. Alas, a few years ago, I should have said "my universe": but now my mind has been opened to higher views of things."""
 
@@ -44,5 +45,27 @@ for word in words_list:
     else:
         word_freq[word] = 1
 
+# print(word_freq)
 
-print(word_freq)
+# If the item includes a punctuation mark as the first character or as the last character, remove that character from the word and add the cleaned word to w_clean.
+# If it does not include punctuation, add it to the list w_clean as a separate token.
+
+w_clean = list()
+
+for w in words_list:
+    if w in punctuation or w == "":
+        continue
+    elif len(w) == 1:
+        w_clean.append(w)
+    elif w[-1] in punctuation and w[0] not in punctuation:
+        sliced_word = w[0:-1]
+        w_clean.append(sliced_word)
+    elif w[0] in punctuation and w[-1] not in punctuation:
+        sliced_word = w[1:]
+        w_clean.append(sliced_word)
+    else:
+        w_clean.append(w)
+
+
+print(w_clean)
+print(len(w_clean))
